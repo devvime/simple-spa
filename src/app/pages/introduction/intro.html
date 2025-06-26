@@ -5,9 +5,12 @@
   <h3>Lessons</h3>
   <ul>
     {{ #lessons }}
-    <li>{{ title }}</li>
+    <li>{{ title }} - <button @click="testClick({{ id }})">Test
+        @click</button></li>
     {{ /lessons }}
   </ul>
   <button add-lesson>Add lesson</button>
+  <hr>
+  <input type="text" @change="inputChange()">
   <footer-element></footer-element>
 </section>

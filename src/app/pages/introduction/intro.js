@@ -11,15 +11,24 @@ const data = state(
     title: "Hello from Intro",
     lessons: [
       {
+        id: 1,
         title: "Lesson 01",
       },
       {
+        id: 2,
         title: "Lesson 02",
       },
       {
+        id: 3,
         title: "Lesson 03",
       },
     ],
+    testClick(e) {
+      console.log(e);
+    },
+    inputChange(e) {
+      console.log(e.target.value);
+    },
   },
   intro
 );
