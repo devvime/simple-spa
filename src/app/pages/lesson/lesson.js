@@ -1,8 +1,8 @@
-import { render, include } from "@app/helpers/render";
+import { render, include } from "@core/render";
 
 import lessonElement from "./lesson.html?raw";
-import headerElement from "@app/components/header/header.html?raw";
-import footerElement from "@app/components/footer/footer.html?raw";
+import headerElement from "@components/header/header.html?raw";
+import footerElement from "@components/footer/footer.html?raw";
 import "./lesson.scss";
 
 export function lesson(ctx, next) {

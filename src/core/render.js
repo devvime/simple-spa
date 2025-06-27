@@ -1,12 +1,6 @@
 import mustache from "mustache";
-import { createElement } from "@app/helpers/template";
-import {
-  click,
-  change,
-  model,
-  condition,
-  handleClass,
-} from "@app/helpers/directives";
+import { createElement } from "@core/template";
+import { click, change, model, condition, handleClass } from "@core/directives";
 
 export function render(target, file, data = {}, DOMRefresh = true) {
   if (DOMRefresh) {
