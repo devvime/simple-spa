@@ -23,11 +23,23 @@ const data = state(
         title: "Lesson 03",
       },
     ],
+    displayCondition: false,
+    activeClass: true,
     testClick(e) {
       console.log(e);
+      data.displayCondition = !data.displayCondition;
+      data.activeClass = !data.activeClass;
     },
     inputChange(e) {
-      console.log(e.target.value);
+      data.title = e.target.value;
+    },
+    addLesson() {
+      data.lessons = [
+        ...data.lessons,
+        {
+          title: "New Lesson",
+        },
+      ];
     },
   },
   intro
@@ -37,16 +49,4 @@ export function intro(ctx, next) {
   render("#app", introElement, data);
   include("header-element", headerElement);
   include("footer-element", footerElement);
-  addLesson();
-}
-
-function addLesson() {
-  document.querySelector("[add-lesson").addEventListener("click", () => {
-    data.lessons = [
-      ...data.lessons,
-      {
-        title: "New Lesson",
-      },
-    ];
-  });
 }

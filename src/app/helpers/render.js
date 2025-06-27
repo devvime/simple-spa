@@ -1,5 +1,6 @@
 import mustache from "mustache";
 import { createElement } from "@app/helpers/template";
+import { emit, output } from "./event";
 
 export function render(target, file, data = {}, DOMRefresh = true) {
   if (DOMRefresh) {
@@ -11,6 +12,9 @@ export function render(target, file, data = {}, DOMRefresh = true) {
 
   click(element, data);
   change(element, data);
+  model(element, data);
+  condition(element, data);
+  handleClass(element, data);
 
   document.querySelector(target).append(element);
 }
@@ -30,6 +34,7 @@ function click(element, data) {
         console.warn(`Method: ${attr[0]} is not implemented.`);
       }
     });
+    element.removeAttribute("@click");
   }
 }
 
@@ -46,5 +51,74 @@ function change(element, data) {
         console.warn(`Method: ${attr[0]} is not implemented.`);
       }
     });
+    element.removeAttribute("@change");
+  }
+}
+
+function model(element, data) {
+  const elements = element.querySelectorAll("[\\@model]");
+  for (let element of elements) {
+    const attr = element.attributes["@model"].value;
+    element.value = data[attr];
+    element.addEventListener("input", (e) => {
+      if (data[attr] === undefined) {
+        console.warn(`Property: ${attr[0]} is not implemented.`);
+      } else {
+        data[attr] = e.target.value;
+        emit("modelChange", e);
+      }
+    });
+    output("modelChange", (e) => {
+      const target = document.querySelector(
+        `[\\@model="${e.detail.target.attributes["@model"].value}"]`
+      );
+      if (target) {
+        target.focus();
+      }
+    });
+    element.removeAttribute("@model");
+  }
+}
+
+function condition(element, data) {
+  const elements = element.querySelectorAll("[\\@if]");
+  for (let element of elements) {
+    const attr = element.attributes["@if"].value;
+    try {
+      if (!eval(attr)) {
+        element.remove();
+      }
+    } catch (err) {
+      console.warn(`@if error: ${err}`);
+    }
+    element.removeAttribute("@if");
+  }
+}
+
+function handleClass(element, data) {
+  const elements = element.querySelectorAll("[\\@class]");
+  for (let element of elements) {
+    const attr = element.attributes["@class"].value
+      .replace("{", "")
+      .replace("}", "")
+      .split(":");
+
+    const className = attr[0]
+      .replaceAll("'", "")
+      .replaceAll('"', "")
+      .replaceAll("`", "")
+      .replaceAll(" ", "");
+    const condition = eval(attr[1]);
+
+    if (condition === undefined) {
+      console.warn(`@is error: Property ${attr[1]} is undefined`);
+    }
+    if (condition) {
+      element.classList.add(className);
+    }
+    if (element.classList.contains(className) && !condition) {
+      element.classList.remove(className);
+    }
+    element.removeAttribute("@class");
   }
 }

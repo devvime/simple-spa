@@ -9,8 +9,20 @@
         @click</button></li>
     {{ /lessons }}
   </ul>
-  <button add-lesson>Add lesson</button>
+  <button @click="addLesson()">Add lesson</button>
   <hr>
-  <input type="text" @change="inputChange()">
+  @change <input type="text" @change="inputChange()">
+  <hr>
+  @model <input type="text" @model="title">
+  <hr>
+  if
+  <div @if="data.displayCondition">
+    <p>Condition</p>
+  </div>
+  <hr>
+  @class
+  <div @class="{ 'active': data.activeClass }">
+    <p>Dinamic class</p>
+  </div>
   <footer-element></footer-element>
 </section>
