@@ -9,7 +9,7 @@
         @click</button></li>
     {{ /lessons }}
   </ul>
-  <button @click="addLesson()">Add lesson</button>
+  <button @click="addLesson()" @ref="btnAddLesson">Add lesson</button>
   <hr>
   @change <input type="text" @change="inputChange()">
   <hr>

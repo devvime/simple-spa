@@ -1,6 +1,7 @@
 import mustache from "mustache";
 import { createElement } from "@core/template";
 import { click, change, model, condition, handleClass } from "@core/directives";
+import { refs } from "./directives";
 
 export function render(target, file, data = {}, DOMRefresh = true) {
   if (DOMRefresh) {
@@ -15,6 +16,7 @@ export function render(target, file, data = {}, DOMRefresh = true) {
   model(element, data);
   condition(element, data);
   handleClass(element, data);
+  refs(element, data);
 
   document.querySelector(target).append(element);
 }

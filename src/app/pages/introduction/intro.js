@@ -8,6 +8,7 @@ import "./intro.scss";
 
 const data = state(
   {
+    refs: {},
     title: "Hello from Intro",
     lessons: [
       {
@@ -29,6 +30,7 @@ const data = state(
       console.log(e);
       data.displayCondition = !data.displayCondition;
       data.activeClass = !data.activeClass;
+      console.log(data.refs.btnAddLesson);
     },
     inputChange(e) {
       data.title = e.target.value;

@@ -98,3 +98,17 @@ export function handleClass(element, data) {
     element.removeAttribute("@class");
   }
 }
+
+export function refs(element, data) {
+  const elements = element.querySelectorAll("[\\@ref]");
+  for (let element of elements) {
+    const attr = element.attributes["@ref"].value;
+    if (data.refs) {
+      data.refs[attr] = element;
+    } else {
+      console.warn("refs not found.");
+      console.warn("declare: { refs: {} } in state");
+    }
+    element.removeAttribute("@ref");
+  }
+}
