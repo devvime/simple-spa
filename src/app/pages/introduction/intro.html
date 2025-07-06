@@ -16,12 +16,12 @@
   @model <input type="text" @model="title">
   <hr>
   if
-  <div @if="data.displayCondition">
+  <div @if="displayCondition">
     <p>Condition</p>
   </div>
   <hr>
   @class
-  <div @class="{ 'active': data.activeClass }">
+  <div @class="{ 'active': activeClass }">
     <p>Dinamic class</p>
   </div>
   <footer-element></footer-element>

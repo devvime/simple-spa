@@ -61,7 +61,7 @@ export function condition(element, data) {
   for (let element of elements) {
     const attr = element.attributes["@if"].value;
     try {
-      if (!eval(attr)) {
+      if (!eval(`data.${attr}`)) {
         element.remove();
       }
     } catch (err) {
@@ -84,18 +84,19 @@ export function handleClass(element, data) {
       .replaceAll('"', "")
       .replaceAll("`", "")
       .replaceAll(" ", "");
-    const condition = eval(attr[1]);
 
-    if (condition === undefined) {
+    try {
+      const condition = eval(`data.${attr[1]}`);
+      if (condition) {
+        element.classList.add(className);
+      }
+      if (element.classList.contains(className) && !condition) {
+        element.classList.remove(className);
+      }
+      element.removeAttribute("@class");
+    } catch (err) {
       console.warn(`@is error: Property ${attr[1]} is undefined`);
     }
-    if (condition) {
-      element.classList.add(className);
-    }
-    if (element.classList.contains(className) && !condition) {
-      element.classList.remove(className);
-    }
-    element.removeAttribute("@class");
   }
 }
 
