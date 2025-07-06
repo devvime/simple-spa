@@ -8,10 +8,11 @@ import {
   handleClass,
   refs,
 } from "@core/directives";
+import { RouterInstance } from "./helper";
 
 export function render(target, file, data = {}, DOMRefresh = true) {
   if (DOMRefresh) {
-    document.querySelector("#app").innerHTML = "";
+    document.querySelector("app").innerHTML = "";
   }
 
   const rendered = mustache.render(file, data);
@@ -25,6 +26,8 @@ export function render(target, file, data = {}, DOMRefresh = true) {
   refs(element, data);
 
   document.querySelector(target).append(element);
+
+  RouterInstance.get().setDataLink();
 }
 
 export function include(target, file, data = {}) {

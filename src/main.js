@@ -1,9 +1,11 @@
-import page from "page";
+import { Router } from "./core/router";
 
 import { intro } from "@app/pages/introduction/intro";
 import { lesson } from "@app/pages/lesson/lesson";
 
-page("/", intro);
-page("/lesson", lesson);
+const router = new Router();
 
-page();
+router.add("/", intro);
+router.add("/lesson", lesson);
+
+router.resolve();

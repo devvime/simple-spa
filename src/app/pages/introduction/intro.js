@@ -57,8 +57,8 @@ const data = state(
   intro
 );
 
-export function intro(ctx, next) {
-  render("#app", introElement, data);
+export function intro(params, query) {
+  render("app", introElement, data);
   include("header-element", headerElement);
   include("footer-element", footerElement);
 }
