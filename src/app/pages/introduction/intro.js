@@ -14,14 +14,24 @@ const data = state(
       {
         id: 1,
         title: "Lesson 01",
+        categories: [],
       },
       {
         id: 2,
         title: "Lesson 02",
+        categories: [],
       },
       {
         id: 3,
         title: "Lesson 03",
+        categories: [
+          {
+            name: "aaaaa",
+          },
+          {
+            name: "bbbbbb",
+          },
+        ],
       },
     ],
     displayCondition: false,

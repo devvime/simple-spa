@@ -5,8 +5,14 @@
   <h3>Lessons</h3>
   <ul>
     {{ #lessons }}
-    <li>{{ title }} - <button @click="testClick({{ id }})">Test
-        @click</button></li>
+    <li>
+      {{ title }} -
+      <button @click="testClick({{ id }})">Test @click</button></li>
+    <ul>
+      {{ #categories }}
+      <li>{{ name }}</li>
+      {{ /categories }}
+    </ul>
     {{ /lessons }}
   </ul>
   <button @click="addLesson()" @ref="btnAddLesson">Add lesson</button>
