@@ -1,0 +1,32 @@
+<section class="register py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 offset-lg-4">
+        <register>
+          <h1 class="text-center">{{ title }}</h1>
+          <form @ref="loginForm">
+            <input
+              type="text"
+              name="name"
+              placeholder="Name..."
+              class="form-control mb-2">
+            <input
+              type="text"
+              name="email"
+              placeholder="Email..."
+              class="form-control mb-2">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password..."
+              class="form-control mb-2">
+            <button type="submit" class="btn btn-success">Confirm</button>
+            <a href="/">
+              <button type="button" class="btn btn-secondary">Cancel</button>
+            </a>
+          </form>
+        </register>
+      </div>
+    </div>
+  </div>
+</section>

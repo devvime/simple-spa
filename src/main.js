@@ -1,11 +1,14 @@
-import { Router } from "./core/router";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 
-import { intro } from "@app/pages/introduction/intro";
-import { lesson } from "@app/pages/lesson/lesson";
+import { Router } from "blots";
+
+import { login } from "@/app/pages/login/login";
+import { register } from "@/app/pages/login/register/register";
 
 const router = new Router();
 
-router.add("/", intro);
-router.add("/lesson", lesson);
+router.add("/", login);
+router.add("/register", register);
 
 router.resolve();

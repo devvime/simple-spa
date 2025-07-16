@@ -1,0 +1,38 @@
+<section class="login py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 offset-lg-4">
+        <login>
+          <h1 class="text-center">{{ title }}</h1>
+          <form @ref="loginForm">
+            <input
+              type="text"
+              name="email"
+              placeholder="Email..."
+              class="form-control mb-2"
+              @model="email">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password..."
+              class="form-control mb-2"
+              @model="password">
+            <button
+              type="button"
+              class="btn btn-success"
+              @click="handleLogin()">
+              <span
+                @if="isLogin"
+                class="spinner-grow spinner-grow-sm"
+                aria-hidden="true"></span>
+              <span role="status">Login</span>
+            </button>
+            <a href="/register">
+              <button type="button" class="btn btn-primary">register</button>
+            </a>
+          </form>
+        </login>
+      </div>
+    </div>
+  </div>
+</section>
