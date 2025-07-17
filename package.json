@@ -12,8 +12,9 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "blots": "^2.0.13",
-    "bootstrap": "^5.3.7"
+    "blots": "^2.0.19",
+    "bootstrap": "^5.3.7",
+    "sweetalert2": "^11.6.13"
   },
   "devDependencies": {
     "sass": "^1.89.2",
