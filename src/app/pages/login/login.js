@@ -3,6 +3,7 @@ import element from "./login.html?raw";
 import { loginService } from "@core/services/login.service";
 import Swal from "sweetalert2";
 import Storage from "@core/helpers/storage";
+import { navigate } from "@core/helpers/navigate";
 
 const data = state(
   {
@@ -56,7 +57,7 @@ async function handleSession(values) {
           token: res.token,
         });
         setTimeout(() => {
-          RouterInstance.get().navigate("/dashboard");
+          navigate("/dashboard");
         }, 500);
       } else {
         await Swal.fire({

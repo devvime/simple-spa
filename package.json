@@ -14,6 +14,7 @@
   "dependencies": {
     "blots": "^2.0.19",
     "bootstrap": "^5.3.7",
+    "bootstrap-icons": "^1.13.1",
     "sweetalert2": "^11.6.13"
   },
   "devDependencies": {

@@ -15,6 +15,10 @@ class Storage {
       return data;
     }
   }
+
+  remove(name) {
+    localStorage.removeItem(name);
+  }
 }
 
 export default new Storage();

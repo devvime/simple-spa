@@ -3,6 +3,7 @@ import element from "./register.html?raw";
 
 import { registerService } from "@core/services/register.service";
 import Swal from "sweetalert2";
+import { navigate } from "@core/helpers/navigate";
 
 const data = state(
   {
@@ -63,7 +64,7 @@ async function handleRegister(values) {
         });
       }
       setTimeout(() => {
-        RouterInstance.get().navigate("/");
+        navigate("/");
       }, 500);
     })
     .catch((err) => {
