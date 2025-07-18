@@ -62,6 +62,9 @@ async function handleRegister(values) {
           icon: "error",
         });
       }
+      setTimeout(() => {
+        RouterInstance.get().navigate("/");
+      }, 500);
     })
     .catch((err) => {
       Swal.fire({
@@ -70,8 +73,5 @@ async function handleRegister(values) {
         icon: "error",
       });
     });
-  setTimeout(() => {
-    RouterInstance.get().navigate("/");
-  }, 500);
   data.loading = false;
 }

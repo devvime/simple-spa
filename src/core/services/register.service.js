@@ -1,4 +1,4 @@
-import { apiURL } from "../../config/api";
+import { apiURL } from "@config/api";
 import { http } from "blots";
 
 export async function registerService(data) {
