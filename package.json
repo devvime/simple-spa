@@ -5,21 +5,20 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "sass": "sass --watch --style=compressed src:dist/pages/css",
-    "start": "concurrently \"npm run dev\" \"npm run sass\""
+    "build": "vite build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
-    "mustache": "^4.2.0",
-    "page": "^1.3.7",
-    "sass": "^1.89.2"
+    "blots": "^2.0.19",
+    "bootstrap": "^5.3.7",
+    "bootstrap-icons": "^1.13.1",
+    "sweetalert2": "^11.6.13"
   },
   "devDependencies": {
-    "vite": "^7.0.0",
-    "concurrently": "^9.2.0"
+    "sass": "^1.89.2",
+    "vite": "^7.0.0"
   }
 }

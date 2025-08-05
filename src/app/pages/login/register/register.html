@@ -1,0 +1,38 @@
+<section class="register py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 offset-lg-4">
+        <register>
+          <h1 class="text-center">{{ title }}</h1>
+          <input
+            type="text"
+            placeholder="Name..."
+            class="form-control mb-2"
+            @model="name">
+          <input
+            type="text"
+            placeholder="Email..."
+            class="form-control mb-2"
+            @model="email">
+          <input
+            type="password"
+            placeholder="Password..."
+            class="form-control mb-2"
+            @model="password">
+          <button
+            class="btn btn-success"
+            @click="register()">
+            <span
+              @if="loading"
+              class="spinner-border spinner-border-sm"
+              aria-hidden="true"></span>
+            <span role="status">Confirm</span>
+          </button>
+          <a href="/">
+            <button class="btn btn-secondary">Cancel</button>
+          </a>
+        </register>
+      </div>
+    </div>
+  </div>
+</section>
